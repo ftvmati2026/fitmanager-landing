@@ -439,6 +439,75 @@ footer {
 .footer-links a { color:var(--muted); text-decoration:none; font-size:0.85rem; transition:color .2s; }
 .footer-links a:hover { color:var(--green); }
 
+/* ─── SCREENSHOTS SECTION ─── */
+#screenshots { background: var(--dark); }
+
+.screenshots-intro { text-align:center; margin-bottom:60px; }
+
+.screenshots-tabs {
+  display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.stab {
+  padding:10px 22px; border-radius:30px;
+  border:1px solid var(--border);
+  background:transparent; color:var(--muted);
+  font-size:0.85rem; font-weight:600; cursor:pointer;
+  transition:all .2s; font-family:'DM Sans',sans-serif;
+}
+.stab:hover { border-color:var(--green); color:var(--green); }
+.stab.active { background:var(--green); color:#000; border-color:var(--green); }
+
+.screenshot-frame {
+  max-width:1000px; margin:0 auto;
+  border-radius:16px; overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 60px rgba(34,197,94,0.08);
+  transition: all .4s ease;
+}
+.screenshot-frame img {
+  width:100%; display:block;
+  transition: opacity .3s ease;
+}
+.screenshot-caption {
+  text-align:center; margin-top:20px;
+  color:var(--muted); font-size:0.9rem;
+}
+.screenshot-caption strong { color:var(--green); }
+
+/* ─── GALLERY STRIP ─── */
+#gallery-strip {
+  padding: 0;
+  overflow:hidden;
+  position:relative;
+  height: 320px;
+}
+.gallery-track {
+  display:flex; height:100%;
+  animation: slideTrack 35s linear infinite;
+  width: max-content;
+}
+.gallery-track:hover { animation-play-state: paused; }
+@keyframes slideTrack {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.gallery-img {
+  height:320px; width:480px;
+  object-fit:cover; flex-shrink:0;
+  filter: brightness(0.75) saturate(1.1);
+  transition: filter .3s;
+}
+.gallery-img:hover { filter: brightness(1) saturate(1.3); }
+
+/* overlay degradé en los bordes */
+#gallery-strip::before,
+#gallery-strip::after {
+  content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none;
+}
+#gallery-strip::before { left:0; background:linear-gradient(to right, var(--dark), transparent); }
+#gallery-strip::after  { right:0; background:linear-gradient(to left, var(--dark), transparent); }
+
 /* ─── SCROLL ANIMATIONS ─── */
 .reveal { opacity:0; transform:translateY(30px); transition:all .7s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
@@ -471,6 +540,11 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
+  <!-- Foto de fondo real del gimnasio -->
+  <div style="position:absolute; inset:0; z-index:0;
+    background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=80') center center / cover no-repeat;
+    opacity:0.18; pointer-events:none;">
+  </div>
   <div class="hero-glow"></div>
 
   <div class="hero-tag">🔥 FitManaer Pro — Sistema de gestión para gimnasios</div>
@@ -505,6 +579,30 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- GALLERY STRIP -->
+<div id="gallery-strip">
+  <div class="gallery-track">
+    <!-- Primera pasada -->
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1549476464-37392f717541?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1581009137042-c552e485697a?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=75" alt="gym">
+    <!-- Segunda pasada (loop) -->
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1549476464-37392f717541?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1581009137042-c552e485697a?w=800&q=75" alt="gym">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=75" alt="gym">
+  </div>
+</div>
 
 <!-- FEATURES -->
 <section id="features">
@@ -724,6 +822,32 @@ footer {
   </div>
 </section>
 
+<!-- SCREENSHOTS REALES -->
+<section id="screenshots" style="background:var(--surface);">
+  <div class="screenshots-intro reveal">
+    <span class="section-label">El sistema real</span>
+    <h2 class="section-title">Así se ve <em>por dentro</em></h2>
+    <p class="section-sub" style="margin:0 auto;">Estas son capturas reales del sistema. Lo que ves es exactamente lo que vas a usar desde el primer día.</p>
+  </div>
+
+  <div class="screenshots-tabs reveal">
+    <button class="stab active" onclick="showScreen(0)">Dashboard</button>
+    <button class="stab" onclick="showScreen(1)">Socios</button>
+    <button class="stab" onclick="showScreen(2)">Pagos</button>
+    <button class="stab" onclick="showScreen(3)">Control de Acceso</button>
+    <button class="stab" onclick="showScreen(4)">Agenda</button>
+    <button class="stab" onclick="showScreen(5)">Reportes</button>
+    <button class="stab" onclick="showScreen(6)">Gestión Staff</button>
+  </div>
+
+  <div class="screenshot-frame reveal">
+    <img id="screenshot-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Dashboard FitManaer Pro">
+  </div>
+  <p class="screenshot-caption reveal" id="screenshot-caption">
+    <strong>Dashboard</strong> — Resumen general con KPIs, ingresos del mes, socios activos y morosos en tiempo real.
+  </p>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="reveal" style="text-align:center;">
@@ -865,7 +989,68 @@ footer {
 </footer>
 
 <script>
-// WhatsApp form inteligente
+// Screenshots tabs
+const screens = [
+  {
+    // Las imágenes se sirven desde tu GitHub Pages
+    src: 'screens/dashboard.png',
+    label: 'Dashboard',
+    caption: '<strong>Dashboard</strong> — Resumen general con KPIs: ingresos del mes, socios activos, morosos y asistencias de hoy.'
+  },
+  {
+    src: 'screens/socios.png',
+    label: 'Socios',
+    caption: '<strong>Socios</strong> — Listado completo con estado (al día / vencido), búsqueda instantánea y acciones rápidas.'
+  },
+  {
+    src: 'screens/pagos.png',
+    label: 'Pagos',
+    caption: '<strong>Pagos</strong> — Registrá cobros en segundos y llevá el historial completo de ingresos.'
+  },
+  {
+    src: 'screens/acceso.png',
+    label: 'Control de Acceso',
+    caption: '<strong>Control de Acceso</strong> — Verificación por DNI al instante. Sabés quién entra y cuándo.'
+  },
+  {
+    src: 'screens/agenda.png',
+    label: 'Agenda',
+    caption: '<strong>Agenda</strong> — Se genera automáticamente según los horarios configurados de cada socio.'
+  },
+  {
+    src: 'screens/reportes.png',
+    label: 'Reportes',
+    caption: '<strong>Reportes</strong> — Gráficos de ingresos por plan, asistencia semanal y auditoría completa del staff.'
+  },
+  {
+    src: 'screens/staff.png',
+    label: 'Gestión Staff',
+    caption: '<strong>Gestión Staff</strong> — Administrá usuarios con roles diferenciados: Administrador y Recepción.'
+  }
+];
+
+function showScreen(index) {
+  const img = document.getElementById('screenshot-img');
+  const caption = document.getElementById('screenshot-caption');
+  const tabs = document.querySelectorAll('.stab');
+
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = screens[index].src;
+    img.onload = () => { img.style.opacity = '1'; };
+    // fallback si no carga
+    img.onerror = () => { img.style.opacity = '0.3'; };
+    caption.innerHTML = screens[index].caption;
+    img.style.opacity = '1';
+  }, 200);
+
+  tabs.forEach((t, i) => t.classList.toggle('active', i === index));
+}
+
+// Inicializar con dashboard
+showScreen(0);
+
+
 document.getElementById('btn-whatsapp-form').addEventListener('click', () => {
   const nombre = document.getElementById('contact-nombre').value.trim();
   const gym = document.getElementById('contact-gym').value.trim();
